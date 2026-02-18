@@ -1,0 +1,6 @@
+[submodule "Test1"]
+	path = Test1
+	url = .\\TEST1\\
+[submodule "FindMe"]
+	path = FindMe
+	url = .\\FindMe\\
