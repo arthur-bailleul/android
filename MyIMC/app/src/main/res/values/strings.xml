@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyIMC</string>
+    <string name="date_link"><u>Date d\'aujourd\'hui</u></string>
 </resources>

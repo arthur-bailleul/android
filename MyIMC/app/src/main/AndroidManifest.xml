@@ -12,6 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyIMC">
         <activity
+            android:name=".Activity_historique_imc"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_formulaire_activite_sportive"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_activite_sportive"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_menu"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_calcul_imc"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_result_imc"
+            android:exported="false" />
+        <activity
             android:name=".Activity2"
             android:exported="false" />
         <activity
