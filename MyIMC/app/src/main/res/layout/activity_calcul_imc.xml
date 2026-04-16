@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_calcul_imc">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="30dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Calculer votre IMC"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textSize="36dp"
+                android:layout_marginBottom="50dp"
+                />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Entrer votre taille (cm)"
+                android:textSize="24sp"
+                />
+
+            <EditText
+                android:id="@+id/calc_imc_editText_taille"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberSigned"
+                android:hint="178 cm"
+                android:textSize="24sp"
+                android:layout_marginBottom="30dp"
+                />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Entrer votre poid (kg)"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/calc_imc_editText_poids"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:ems="10"
+                android:hint="70 kg"
+                android:inputType="numberSigned"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/calc_imc_button_calculer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Calculer"
+                android:textSize="24sp"
+                android:paddingHorizontal="50dp"
+                android:paddingVertical="10dp"
+                android:backgroundTint="@color/light_gray"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/calcul_imc_floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_revert"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/white"
+        app:borderWidth="1dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
