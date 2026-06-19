@@ -20,12 +20,11 @@
             android:id="@+id/menu_titre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Menu"
-            android:textStyle="bold"
-            android:textSize="36sp"
-            android:textAlignment="center"
             android:layout_marginBottom="50dp"
-            />
+            android:text="@string/btn_menu_title"
+            android:textAlignment="center"
+            android:textSize="36sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,14 +55,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:clickable="true"
                     android:gravity="center"
                     android:paddingLeft="30dp"
-                    android:text="Calculer votre IMC"
+                    android:text="@string/btn_menu_calc_imc"
                     android:textAlignment="textStart"
                     android:textColor="@color/white"
-                    android:textSize="24sp"
-                    android:clickable="true"
-                    />
+                    android:textSize="24sp" />
 
 
             </LinearLayout>
@@ -82,18 +80,18 @@
                     android:layout_height="match_parent"
                     android:layout_weight="10"
                     app:srcCompat="@android:drawable/arrow_down_float" />
+
                 <TextView
                     android:id="@+id/menu_result_imc"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Resultat IMC"
-                    android:textAlignment="textStart"
                     android:gravity="center"
-                    android:textColor="@color/white"
                     android:paddingLeft="30dp"
-                    android:textSize="24sp"
-                    />
+                    android:text="@string/btn_menu_calc_res_imc"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
 
 
 
@@ -120,13 +118,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Activite sportives"
-                    android:textAlignment="textStart"
                     android:gravity="center"
-                    android:textColor="@color/white"
                     android:paddingLeft="30dp"
-                    android:textSize="24sp"
-                    />
+                    android:text="@string/btn_menu_calc_activite_sportive"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
 
 
 

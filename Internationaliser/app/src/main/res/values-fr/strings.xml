@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Internationaliser</string>
+    <string name="Titre1">Titre 1</string>
+    <string name="text1">texte 1 fr</string>
+    <string name="text2">text 2 fr</string>
+    <string name="btn_switch_lang">changer de langue</string>
+</resources>

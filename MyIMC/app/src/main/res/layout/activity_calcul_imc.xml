@@ -25,20 +25,18 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Calculer votre IMC"
-                android:textStyle="bold"
+                android:layout_marginBottom="50dp"
+                android:text="@string/calcul_imc_title"
                 android:textAlignment="center"
                 android:textSize="36dp"
-                android:layout_marginBottom="50dp"
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Entrer votre taille (cm)"
-                android:textSize="24sp"
-                />
+                android:text="@string/calcul_imc_taille"
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/calc_imc_editText_taille"
@@ -55,7 +53,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Entrer votre poid (kg)"
+                android:text="@string/calcul_imc_poids"
                 android:textSize="24sp" />
 
             <EditText
@@ -73,12 +71,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Calculer"
-                android:textSize="24sp"
+                android:backgroundTint="@color/light_gray"
                 android:paddingHorizontal="50dp"
                 android:paddingVertical="10dp"
-                android:backgroundTint="@color/light_gray"
-                />
+                android:text="@string/calcul_imc_calculer"
+                android:textSize="24sp" />
         </LinearLayout>
     </LinearLayout>
 

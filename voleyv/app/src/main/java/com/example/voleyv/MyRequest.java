@@ -89,7 +89,20 @@ public class MyRequest {
         void pasOK(String message);
         void systemError(String message);
     }
-    public void login(final String LOGIN, final String PASSWORD, final RetoursPHP rp) {
+
+    interface LoginCallBack {
+        void onSuccess(HashMap<String, String> logIn, String message);
+        void onError(String message);
+        void systemError(String message);
+    }
+
+    interface NewPasswordCallBack {
+        void onSuccess(String message);
+        void onError(String message);
+        void systemError(String message);
+    }
+
+    public void login(final String LOGIN, final String PASSWORD, final LoginCallBack callBack) {
 
         String url = "http://192.168.1.254/android/login.php";
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -101,21 +114,27 @@ public class MyRequest {
                     JSONObject json = new JSONObject(response);
                     var error = json.getBoolean("error");
 
-                    var get_id = json.getInt("id");
-                    var get_login = json.getString("login");
-                    var get_email = json.getString("email");
+                    var map = new HashMap<String, String>();
+                    map.put("id", json.getString("id"));
+                    map.put("login", json.getString("login"));
+                    map.put("email", json.getString("email"));
+
 
                     if (!error) {
-                        rp.toutOK(get_id + ";" + get_login + ";" + get_email);
+//                        rp.toutOK(get_id + ";" + get_login + ";" + get_email);
+                        callBack.onSuccess(map, "Vous etes connecter!");
                         Toast.makeText(ctx, "Vous etes connecter!", Toast.LENGTH_SHORT).show();
                     } else {
-                        rp.pasOK(json.getString("message"));
+//                        rp.pasOK(json.getString("message"));
+                        callBack.onError(json.getString("message"));
                         Toast.makeText(ctx, "Erreur lors de l'inscription", Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (JSONException e) {
+                    e.printStackTrace();
                     Log.d("PHP", "passage dans le catch de login" + e);
-                    rp.systemError("Une erreur est survenue, veuillez renouveler votre essai");
+//                    rp.systemError("Une erreur est survenue, veuillez renouveler votre essai");
+                    callBack.systemError("Une erreur est survenue, veuillez renouveler votre essai");
                     Toast.makeText(ctx, "Probleme serveur", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -124,9 +143,9 @@ public class MyRequest {
             public void onErrorResponse(VolleyError error) {
                 Log.d("PHP", "error: "+ error) ;
                 if (error instanceof NetworkError) {
-                    rp.systemError("Une erreur reseau s'est produite");
+                    callBack.systemError("Une erreur reseau s'est produite");
                 } else if (error instanceof VolleyError) {
-                    rp.systemError("Une erreur s'est produite, impossible de joindre le serveur");
+                    callBack.systemError("Une erreur s'est produite, impossible de joindre le serveur");
                 }
             }
         }) {
@@ -142,9 +161,10 @@ public class MyRequest {
         queue.add(request);
     }
 
-    public void newPassword(final String LOGIN, final String OLD_PASSWORD, final String NEW_PASSWORD, final String CONFIRM_NEW_PASSWORD, final RetoursPHP rp) {
-        String url = "http://192.168.1.254/android/info.php";
-        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+    // faire 2 method : Post, GET avec en param la hashmap et l'url car c'est les 2 seuls  a changer
+    public void newPassword(final String LOGIN, final String OLD_PASSWORD, final String NEW_PASSWORD, final String CONFIRM_NEW_PASSWORD, final NewPasswordCallBack callBack) {
+        String url = "http://192.168.1.254/android/new_password.php";
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("PHP", response);
@@ -152,21 +172,18 @@ public class MyRequest {
                 try {
                     JSONObject json = new JSONObject(response);
                     var error = json.getBoolean("error");
-                    var data = json.getJSONArray("login");
-                    var data2 = json.getJSONObject("login");
-                    var data3 = json.getString("login");
 
                     if (!error) {
-                        rp.toutOK("Vous etes connecter!" + data.toString() + data2.toString() + data3);
+                        callBack.onSuccess("Vous avez changer le mot de passe");
                         Toast.makeText(ctx, "Vous etes connecter!", Toast.LENGTH_SHORT).show();
                     } else {
-                        rp.pasOK(json.getString("message"));
-                        Toast.makeText(ctx, "Erreur lors de l'inscription", Toast.LENGTH_SHORT).show();
+                        callBack.onError(json.getString("message"));
+                        Toast.makeText(ctx, "Erreur lors du changement de mot de passe", Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (JSONException e) {
                     Log.d("PHP", "passage dans le catch de login" + e);
-                    rp.systemError("Une erreur est survenue, veuillez renouveler votre essai");
+                    callBack.systemError("Une erreur est survenue, veuillez renouveler votre essai");
                     Toast.makeText(ctx, "Probleme serveur", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -175,21 +192,23 @@ public class MyRequest {
             public void onErrorResponse(VolleyError error) {
                 Log.d("PHP", "error: "+ error) ;
                 if (error instanceof NetworkError) {
-                    rp.systemError("Une erreur reseau s'est produite");
+                    callBack.systemError("Une erreur reseau s'est produite");
                 } else if (error instanceof VolleyError) {
-                    rp.systemError("Une erreur s'est produite, impossible de joindre le serveur");
+                    callBack.systemError("Une erreur s'est produite, impossible de joindre le serveur");
                 }
             }
         }) {
             @Nullable
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
+                Log.d("PHP", "Map");
                 var map = new HashMap<String, String>();
                 map.put("login", LOGIN);
-                map.put("password", OLD_PASSWORD);
-                map.put("password", NEW_PASSWORD);
-                map.put("password", CONFIRM_NEW_PASSWORD);
+                map.put("old_password", OLD_PASSWORD);
+                map.put("new_password", NEW_PASSWORD);
+                map.put("confirm_new_password", CONFIRM_NEW_PASSWORD);
 
+                Log.d("PHP", map.toString());
                 return map;
             }
         };

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyIMC</string>
+    <string name="btn_menu_calc_imc">Calculer votre IMC</string>
+    <string name="btn_menu_calc_res_imc">Resultat IMC</string>
+    <string name="btn_menu_calc_activite_sportive">Activite Sportive</string>
+    <string name="btn_menu_title">Menu</string>
+    <string name="calcul_imc_title">Calculer votre IMC</string>
+    <string name="calcul_imc_taille">Entrer votre taille (cm)</string>
+    <string name="calcul_imc_poids">Entrer votre poid (kg)</string>
+    <string name="calcul_imc_calculer">Calculer</string>
+    <string name="res_imc_title">Resultat</string>
+    <string name="res_imc_type">Aucun resultat</string>
+    <string name="res_imc_red"><![CDATA["    > 40 : Obésité massive"]]></string>
+    <string name="res_imc_orange">40 - 35 : Obésité sévère</string>
+    <string name="res_imc_brown">35 - 30 : Obésité modérée</string>
+    <string name="res_imc_yellow">30 - 25 : Surpoids</string>
+    <string name="res_imc_green">25 - 18,5 : Recommandé</string>
+    <string name="res_imc_turquoise">18,5 - 16,5 : Maigreur</string>
+    <string name="res_imc_blue">inférieur à 16,5 : Dénutrition</string>
+    <string name="res_imc_warning">Avertissement : Ce calculateur est fourni à titre indicatif. Il ne convient pas aux enfants ni aux femmes enceintes. Pour toute question concernant votre santé, veuillez consulter un professionnel de santé.</string>
+    <string name="res_imc_recalc">Refaire le calcul</string>
+    <string name="res_imc_history">Historique</string>
+    <string name="acti_sport_title">Vos Activites sportives</string>
+    <string name="acti_sport_search">Rechercher</string>
+    <string name="acti_sport_input">escalade</string>
+    <string name="add_acti_sport_title">Ajout d\'une activite sportive</string>
+    <string name="add_acti_sport_name">Nom de l\'activite</string>
+    <string name="add_acti_sport_input_nom">courir</string>
+    <string name="add_acti_sport_date">Date</string>
+    <string name="add_acti_sport_input_date">2026-06-17</string>
+    <string name="date_link"><u>Date d\'aujourd\'hui</u></string>
+    <string name="add_acti_sport_duree">Duree (min)</string>
+    <string name="add_acti_sport_input_duree">30</string>
+    <string name="add_acti_sport_com">Commentaire</string>
+    <string name="add_acti_sport_input_com">couru 10km</string>
+    <string name="add_acti_sport_add">Ajouter</string>
+</resources>

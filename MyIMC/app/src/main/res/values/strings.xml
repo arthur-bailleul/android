@@ -1,4 +1,43 @@
 <resources>
-    <string name="app_name">MyIMC</string>
-    <string name="date_link"><u>Date d\'aujourd\'hui</u></string>
+    <string name="app_name">MyBMI</string>
+
+    <string name="btn_menu_calc_imc">Calculate your BMI</string>
+    <string name="btn_menu_calc_res_imc">IMC Result</string>
+    <string name="btn_menu_calc_activite_sportive">Sports Activities</string>
+    <string name="btn_menu_title">Menu</string>
+
+    <string name="calcul_imc_title">Calculate your BMI</string>
+    <string name="calcul_imc_taille">put your height (cm)</string>
+    <string name="calcul_imc_poids">put your weight (kg)</string>
+    <string name="calcul_imc_calculer">Calculate</string>
+
+    <string name="res_imc_title">Result</string>
+    <string name="res_imc_type">No Resultat</string>
+    <string name="res_imc_red"><![CDATA["    > 40 : massive obesity"]]></string>
+    <string name="res_imc_orange">40 - 35 : Severe obesity</string>
+    <string name="res_imc_brown">35 - 30 : Moderate obesity</string>
+    <string name="res_imc_yellow">30 - 25 : Overweight</string>
+    <string name="res_imc_green">25 - 18,5 : Recommended</string>
+    <string name="res_imc_turquoise">18,5 - 16,5 : Underweight</string>
+    <string name="res_imc_blue">Below 16,5 : Malnutrition</string>
+    <string name="res_imc_warning">Avertissement : Ce calculateur est fourni à titre indicatif. Il ne convient pas aux enfants ni aux femmes enceintes. Pour toute question concernant votre santé, veuillez consulter un professionnel de santé.</string>
+    <string name="res_imc_recalc">Recalculate</string>
+    <string name="res_imc_history">History</string>
+
+    <string name="acti_sport_title">Your Sports Activities</string>
+    <string name="acti_sport_search">Search</string>
+    <string name="acti_sport_input">climbing</string>
+    <string name="add_acti_sport_title">Add Sport activity</string>
+    <string name="add_acti_sport_name">Activity Name</string>
+    <string name="add_acti_sport_input_nom">running</string>
+    <string name="add_acti_sport_date">Date</string>
+    <string name="add_acti_sport_input_date">2026-06-17</string>
+    <string name="date_link"><u>Today\'s date</u></string>
+    <string name="add_acti_sport_duree">Duration (min)</string>
+    <string name="add_acti_sport_input_duree">30</string>
+    <string name="add_acti_sport_com">Comment</string>
+    <string name="add_acti_sport_input_com">ran for 10km</string>
+    <string name="add_acti_sport_add">Add</string>
+
+
 </resources>

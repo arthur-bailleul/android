@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Internationaliser</string>
+    <string name="Titre1">Title 1</string>
+    <string name="text1">text 1 en</string>
+    <string name="text2">text 2 en</string>
+    <string name="btn_switch_lang">switch lang</string>
+</resources>

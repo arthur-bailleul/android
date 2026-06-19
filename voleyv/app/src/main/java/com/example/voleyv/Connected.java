@@ -22,6 +22,7 @@ public class Connected extends AppCompatActivity {
     private TextView textView_email;
 
     private Button button_new_password;
+    private Button button_logout;
 
     private RequestQueue queue;
     private MyRequest request;
@@ -29,6 +30,8 @@ public class Connected extends AppCompatActivity {
     private String id;
     private String login;
     private String email;
+
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,33 +43,53 @@ public class Connected extends AppCompatActivity {
         textView_email = findViewById(R.id.textView_connected_email);
 
         button_new_password = findViewById(R.id.button_connected_new_password);
+        button_logout = findViewById(R.id.button_connected_logout);
 
         queue = MySingleton.getInstance(this).getRequestQueue();
         request = new MyRequest(this, queue);
 
 
+        sessionManager = new SessionManager(this);
 
-        try {
-            id = getIntent().getExtras().getString("id");
-            login  = getIntent().getExtras().getString("login");
-            email = getIntent().getExtras().getString("email");
-
-            textView_id.setText(id);
-            textView_login.setText(login);
-            textView_email.setText(email);
-
-            Log.d("PHP", id);
-            Log.d("PHP", login);
-            Log.d("PHP", email);
-
-        } catch (Exception e) {
-            Toast.makeText(this, "Error get extra", Toast.LENGTH_SHORT).show();
+        if (!sessionManager.isLogged()) {
+            var i = new Intent(Connected.this, Login.class);
+            startActivity(i);
         }
+
+        textView_id.setText(sessionManager.getId());
+        textView_login.setText(sessionManager.getLogin());
+        textView_email.setText(sessionManager.getEmail());
+
+//        try {
+//            id = getIntent().getExtras().getString("id");
+//            login  = getIntent().getExtras().getString("login");
+//            email = getIntent().getExtras().getString("email");
+//
+//            textView_id.setText(id);
+//            textView_login.setText(login);
+//            textView_email.setText(email);
+//
+//            Log.d("PHP", id);
+//            Log.d("PHP", login);
+//            Log.d("PHP", email);
+//
+//        } catch (Exception e) {
+//            Toast.makeText(this, "Error get extra", Toast.LENGTH_SHORT).show();
+//        }
 
         button_new_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Connected.this, NewPassword.class);
+                startActivity(intent);
+            }
+        });
+
+        button_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sessionManager.logout();
+                var intent = new Intent(Connected.this, Login.class);
                 startActivity(intent);
             }
         });

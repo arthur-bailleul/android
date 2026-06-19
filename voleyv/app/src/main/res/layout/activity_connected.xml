@@ -117,6 +117,14 @@
                 android:layout_weight="1"
                 android:text="Changer mot de passe" />
 
+            <Button
+                android:id="@+id/button_connected_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="Logout" />
+
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
